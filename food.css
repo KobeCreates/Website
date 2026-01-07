@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Yesteryear&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+body{
+  text-align:center;
+  background-image:url(stitch-with-a-donut.png);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.title{
+  font-family:"Lavishly Yours";
+  text-align: center;
+  font-size:120px;
+  color: rgb(50, 100, 200);
+  border: 3px solid;
+  background-color: rgb(255, 0, 150);
+  padding:5px;
+  border-radius:40px;
+}
+h2{
+  padding-top:20px;
+}
+.button{
+  text-decoration:none;
+  color:rgb(50, 100, 200);
+  font-family:"Yesteryear";
+  font-size:80px;
+  border: 3px solid rgb(50, 100, 200);
+  background-color: rgb(255, 0, 150);
+  padding:10px;
+  border-radius:20px;
+}
+.button:hover{
+  font-size:100px;
+}
+div{
+  padding:20px;
+}
+.cake{
+  background-image:url(cake.png);
+}
+.biscuts{
+  background-image:url(biscuts.png);
+}
+.donuts{
+  background-image:url(donuts.png)
+}
