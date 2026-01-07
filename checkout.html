@@ -1,0 +1,164 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="Checkout.css">
+    <title>Bean there, done that.com</title>
+  </head>
+  <body>
+    <h1>
+      <span id="websitetitle" class="title">Checkout</span>
+    </h1>
+    <div>
+    <label id="Coffees">
+      Coffee:
+      <select id="Coffeeselect">
+        <option value="None">None</option>
+        <option value="Latte">Latte</option>
+        <option value="Cappuccino">Cappuccino</option>
+        <option value="Mocha">Mocha</option>
+      </select>
+    </label>
+    </div>
+    <div class="hidden" id="Flavours">
+    <label>
+      Coffee flavour:
+      <select id="Flavourselect">
+        <option value="Normal">Normal</option>
+        <option value="Caramel">Caramel</option>
+        <option value="Hazelnut">Hazelnut</option>
+        <option value="Creme brulee">Creme brulee</option>
+      </select>
+      <label>
+      Creme <input type="checkbox" id="creme">
+      </label>
+    </label>
+    </div>
+    <div>
+    <label id="Foods">
+      Food:
+      <select id="Foodselect">
+        <option value="None">None</option>
+        <option value="Cake">Cake</option>
+        <option value="Biscuts">Biscuts</option>
+        <option value="Donuts">Donuts</option>
+      </select>
+    </label>
+    </div>
+    <div>
+    <label id="CakeF" class="hidden">
+      Cake flavour:
+      <select id="Cakeselect">
+        <option value="Vanilla">Vanilla</option>
+        <option value="Mint">Mint</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Strawberry">Strawberry</option>
+      </select>
+    </label>
+    </div>
+    <div>
+    <label id="DonutF" class="hidden">
+      Donut flavour:
+      <select id="Donutselect">
+        <option value="Vanilla">Vanilla</option>
+        <option value="Mint">Mint</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Strawberry">Strawberry</option>
+      </select>
+    </label>
+    </div>
+    <div>
+      <label>Card number: <input id="Cardnum"></label>
+    </div>
+    <div>
+      <label>Pin: <input id="Cardpin"></label>
+    </div>
+    <div>
+      <label id="money">$<span id="price" class="price">0</span></label>
+    </div>
+    <div>
+      <a class="button hidden" href="buy.html" id="buybutton">Buy</a>
+    </div>
+    <div class="block">
+      <a class="button" href="index.html">Back</a>
+    </div>
+    <script>
+      let debt = 0;
+      function buyer(){
+        if(! Cardnum.value == ""){
+          if(! Cardpin.value == ""){
+            buybutton.classList.remove("hidden");
+          }
+          else{
+            buybutton.classList.add("hidden")
+          }
+        }
+        else{
+          buybutton.classList.add("hidden")
+        }
+      }
+      function customcoffee(){
+      if(creme.checked){
+            debt = debt + 1;
+          }
+          if(Flavourselect.value == "Normal"){
+          }
+          else{
+            debt = debt + 2;
+          }
+      }
+      function prices(){
+        debt = 0;
+        if(Coffeeselect.value == "Latte"){
+          debt = debt + 7;
+          customcoffee();
+        }
+        if(Coffeeselect.value == "Cappuccino"){
+          debt = debt + 6;
+          customcoffee();
+        }
+        if(Coffeeselect.value == "Mocha"){
+          debt = debt + 5;
+          customcoffee();
+        }
+        if(Foodselect.value == "Cake"){
+          debt = debt + 10;
+        }
+        if(Foodselect.value == "Biscuts"){
+          debt = debt + 4;
+        }
+        if(Foodselect.value == "Donuts"){
+          debt = debt + 5;
+        }
+        price.textContent = debt;
+      }
+      function Food(){
+        if(Foodselect.value == "Cake"){
+          CakeF.classList.remove("hidden");
+        }
+        else{
+          CakeF.classList.add("hidden")
+        }
+        if(Foodselect.value == "Donuts"){
+          DonutF.classList.remove("hidden");
+        }
+        else{
+          DonutF.classList.add("hidden")
+        }
+        prices();
+      }
+      function Flavour(){
+        if(Coffeeselect.value == "None"){
+          Flavours.classList.add("hidden");
+        }else{
+           Flavours.classList.remove("hidden");
+      }
+        prices();
+      }
+     Coffees.onchange = Flavour;
+     Foodselect.onchange = Food;
+     Flavourselect.onchange = prices;
+     creme.onchange = prices;
+     Cardnum.oninput = buyer;
+     Cardpin.oninput = buyer;
+    </script>
+  </body>
+</html>
